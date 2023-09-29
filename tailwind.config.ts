@@ -17,6 +17,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['var(--font-outfit)'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -30,6 +33,7 @@ const config = {
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
+          blue: 'hsl(var(--secondary-blue))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
