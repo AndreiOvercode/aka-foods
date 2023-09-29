@@ -1,4 +1,12 @@
+import { Outfit } from 'next/font/google';
+
 import 'app/globals.css';
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-outfit',
+});
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +19,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${outfit.variable} `}>
       <body>
         <main className="flex min-h-screen flex-col items-center bg-muted">
           {children}
