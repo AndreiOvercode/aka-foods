@@ -3,7 +3,7 @@
 import { FC, ReactNode } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { ChevronLeft } from 'lucide-react';
-import { FormSteps } from 'src/features/form-steps/ui';
+import { FormSteps } from 'src/features/auth/ui/form-steps';
 import { Button } from 'src/shadcn/ui/button';
 
 interface LoginLayoutProps {
@@ -71,8 +71,8 @@ const LoginLayout: FC<LoginLayoutProps> = ({ children }) => {
       <div className="mt-6 max-w-[292px]">
         <p className="title">{title}</p>
         <p className="mt-2 font-light">{subtitle}</p>
-        {children}
       </div>
+      {children}
     </div>
   );
 };
