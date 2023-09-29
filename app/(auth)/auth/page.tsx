@@ -13,7 +13,7 @@ const LoginPage = () => {
       </div>
       <Button className="mt-8 h-16 w-full p-0 text-base">
         <Link
-          href={'/auth/create-account'}
+          href={'/auth/registration/create-account'}
           className="flex h-full w-full items-center justify-center"
         >
           Create account

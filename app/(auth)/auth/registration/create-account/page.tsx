@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { CheckCircle2, Eye, EyeOffIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -25,6 +26,8 @@ import {
 import { Input } from 'src/shadcn/ui/input';
 
 const CreateAccountPage = () => {
+  const router = useRouter();
+
   const [fieldsList, setFieldList] = useState<TCreateAccountDefaultFieldItem[]>(
     createAccountDefaultFields,
   );
@@ -55,7 +58,7 @@ const CreateAccountPage = () => {
   );
 
   function onSubmit(values: TCreateAccountFormType) {
-    console.log(values);
+    router.replace('/auth/registration/info');
   }
 
   return (

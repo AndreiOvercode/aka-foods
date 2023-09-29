@@ -10,9 +10,9 @@ interface LoginLayoutProps {
   children: ReactNode;
 }
 
-const createAccountHref = '/auth/create-account';
-const infoHref = '/auth/info';
-const addMemberHref = '/auth/add-member';
+const createAccountHref = '/auth/registration/create-account';
+const infoHref = '/auth/registration/info';
+const addMemberHref = '/auth/registration/add-member';
 
 const titles = [
   {
@@ -40,17 +40,20 @@ const LoginLayout: FC<LoginLayoutProps> = ({ children }) => {
 
   const pathname = usePathname();
 
+  const isActiveStep = (pathnamesList: string[]) =>
+    pathnamesList.some((path) => pathname.startsWith(path));
+
   const stepsData = [
     {
-      active: pathname.startsWith(createAccountHref),
+      active: isActiveStep([createAccountHref, infoHref, addMemberHref]),
       href: createAccountHref,
     },
     {
-      active: pathname.startsWith(infoHref),
+      active: isActiveStep([infoHref, addMemberHref]),
       href: infoHref,
     },
     {
-      active: pathname.startsWith(addMemberHref),
+      active: isActiveStep([addMemberHref]),
       href: addMemberHref,
     },
   ];
@@ -68,7 +71,7 @@ const LoginLayout: FC<LoginLayoutProps> = ({ children }) => {
         <FormSteps stepsData={stepsData} />
       </div>
 
-      <div className="mt-6 max-w-[292px]">
+      <div className="mt-6 max-w-[320px]">
         <p className="title">{title}</p>
         <p className="mt-2 font-light">{subtitle}</p>
       </div>
