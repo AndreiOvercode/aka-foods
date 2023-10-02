@@ -31,6 +31,9 @@ export const createAccountSchema = z
     confirmPassword: z
       .string()
       .min(1, { message: 'Confirm password required' }),
+    policy: z.boolean().refine((data) => data === true, {
+      message: 'You must agree to the terms and conditions',
+    }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: 'Passwords must match',
@@ -42,8 +45,8 @@ export type TCreateAccountFormType = z.infer<typeof createAccountSchema>;
 export type TCreateAccountDefaultFieldItem = {
   label: string;
   name: keyof TCreateAccountFormType;
-  type: 'email' | 'password' | 'text';
-  placeholder: string;
+  type: 'email' | 'password' | 'text' | 'checkbox';
+  placeholder?: string;
   changeableType?: 'email' | 'password' | 'text';
 };
 
@@ -79,6 +82,7 @@ export const createAccountDefaultValues: TCreateAccountFormType = {
   email: '',
   password: '',
   confirmPassword: '',
+  policy: false,
 };
 
 export const createAccountDefaultFields: TCreateAccountDefaultFieldItem[] = [

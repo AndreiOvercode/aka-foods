@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { CheckCircle2, Eye, EyeOffIcon } from 'lucide-react';
@@ -15,6 +16,7 @@ import {
 } from 'src/entities/auth/model/createAccountFormData';
 import { cn } from 'src/lib/utils';
 import { Button } from 'src/shadcn/ui/button';
+import { Checkbox } from 'src/shadcn/ui/checkbox';
 import {
   Form,
   FormControl,
@@ -79,8 +81,10 @@ const CreateAccountPage = () => {
                     type={fieldValue.type}
                     autoComplete={'on'}
                     {...field}
+                    value={`${field.value}`}
                   />
                 </FormControl>
+
                 {(field.name === 'password' ||
                   field.name === 'confirmPassword') && (
                   <div
@@ -99,6 +103,7 @@ const CreateAccountPage = () => {
             )}
           />
         ))}
+
         <div className="!mt-6 flex flex-col gap-y-3">
           {validPassList.map((item, index) => {
             const isValid =
@@ -118,6 +123,33 @@ const CreateAccountPage = () => {
               </div>
             );
           })}
+          <FormField
+            control={form.control}
+            name={'policy'}
+            render={({ field }) => (
+              <FormItem>
+                <div className="mt-2 flex flex-nowrap items-center gap-x-2 space-y-0">
+                  <FormControl>
+                    <Checkbox
+                      checked={!!field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <FormLabel>
+                    I agree with{' '}
+                    <Link href={'#'} className="underline">
+                      Terms and Conditions
+                    </Link>{' '}
+                    and the{' '}
+                    <Link href={'#'} className="underline">
+                      Privacy Policy
+                    </Link>
+                  </FormLabel>
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
         <Button type="submit" className="!mt-8 h-16 w-full">
           Next step
