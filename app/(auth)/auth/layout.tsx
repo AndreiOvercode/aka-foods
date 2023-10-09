@@ -30,7 +30,7 @@ export default async function RootLayout({
                 {children}
               </div>
             </div>
-            <div className="flex flex-1 grow flex-col items-center justify-center rounded-lg bg-secondary-blue">
+            <div className="sticky top-0 flex h-screen flex-1 grow flex-col items-center justify-center rounded-lg bg-secondary-blue">
               <LoginImage />
             </div>
           </div>

@@ -43,18 +43,21 @@ const config = {
           DEFAULT: 'hsl(var(--muted))',
           foreground: 'hsl(var(--muted-foreground))',
         },
-        // accent: {
-        //   DEFAULT: 'hsl(var(--accent))',
-        //   foreground: 'hsl(var(--accent-foreground))',
-        // },
-        // popover: {
-        //   DEFAULT: 'hsl(var(--popover))',
-        //   foreground: 'hsl(var(--popover-foreground))',
-        // },
-        // card: {
-        //   DEFAULT: 'hsl(var(--card))',
-        //   foreground: 'hsl(var(--card-foreground))',
-        // },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+      },
+      boxShadow: {
+        dropdown: '6px 12px 24px 0px rgba(156, 168, 191, 0.24)',
       },
       borderRadius: {
         lg: 'var(--radius)',

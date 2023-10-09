@@ -114,11 +114,15 @@ const CreateAccountPage = () => {
               <div
                 key={index}
                 className={cn('flex items-center', {
-                  'text-green-700': isValid,
                   'text-destructive': isSubmitted && !isValid,
                 })}
               >
-                <CheckCircle2 className="mr-2 h-4 w-4 rounded-full" />
+                <CheckCircle2
+                  className={cn('mr-2 h-4 w-4 rounded-full', {
+                    'bg-[#62CBA5]': isValid,
+                    'text-white': isValid,
+                  })}
+                />
                 <span className="text-sm font-light">{item.text}</span>
               </div>
             );
